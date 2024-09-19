@@ -2,7 +2,7 @@ name: build games
 on:
   push:
     branches:
-      - master
+      - main
 jobs:
   push:
     name: Image
