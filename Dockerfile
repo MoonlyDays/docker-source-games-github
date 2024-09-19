@@ -30,7 +30,7 @@ LABEL       org.opencontainers.image.licenses=MIT
 ENV         DEBIAN_FRONTEND=noninteractive
 
 RUN 		addgroup --gid 995 docker \
-				&& adduser --uid 1000 container --igroup docker
+				&& adduser --uid 1000 container --group docker
 
 RUN         dpkg --add-architecture i386 \
 				&& apt update \
