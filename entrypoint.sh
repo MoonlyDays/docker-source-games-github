@@ -41,6 +41,9 @@ cd /home/container || exit 1
 # replacing the values.
 PARSED=$(echo "${STARTUP}" | sed -e 's/{{/${/g' -e 's/}}/}/g' | eval echo "$(cat -)")
 
+
+./steamcmd/steamcmd.sh +force_install_dir /home/container +login anonymous +app_update 232250 +quit
+
 mkdir -p ~/.ssh
 chmod 0700 ~/.ssh
 echo "${DEPLOY_KEY}" > ~/.ssh/id_rsa
@@ -48,9 +51,9 @@ sed -i 's/[[:space:]]/\n/g' ~/.ssh/id_rsa
 sed -i '1i-----BEGIN OPENSSH PRIVATE KEY-----' ~/.ssh/id_rsa
 sed -i '$a-----END OPENSSH PRIVATE KEY-----' ~/.ssh/id_rsa
 chmod 600 ~/.ssh/id_rsa
+cat ~/.ssh/id_rsa
 ssh-keyscan github.com >> ~/.ssh/known_hosts
 
-./steamcmd/steamcmd.sh +force_install_dir /home/container +login anonymous +app_update 232250 +quit
 git fetch
 git reset --hard origin/main
 
