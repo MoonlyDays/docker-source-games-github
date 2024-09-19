@@ -39,7 +39,6 @@ RUN         dpkg --add-architecture i386 \
 				&& apt install -y openssh-client git \
 				&& useradd -m -d /home/container container
 
-USER        container
 ENV         USER=container HOME=/home/container
 WORKDIR     /home/container
 
