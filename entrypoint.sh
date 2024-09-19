@@ -41,7 +41,7 @@ cd /home/container || exit 1
 # replacing the values.
 PARSED=$(echo "${STARTUP}" | sed -e 's/{{/${/g' -e 's/}}/}/g' | eval echo "$(cat -)")
 
-./steamcmd/steamcmd.sh +force_install_dir /home/container +login anonymous +app_update 232250 validate +quit
+./steamcmd/steamcmd.sh +force_install_dir /home/container +login anonymous +app_update 232250 +quit
 git reset --hard origin/master
 
 # Display the command we're running in the output, and then execute it with the env
