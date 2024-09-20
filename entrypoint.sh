@@ -46,7 +46,7 @@ chmod -R +x ./steamcmd/linux32
 ./steamcmd/steamcmd.sh +force_install_dir /home/container +login anonymous +app_update 232250 +quit
 
 eval `ssh-agent -s`
-ssh-add -K ./ssh/id_rsa
+ssh-add ./ssh/id_rsa
 git fetch
 git reset --hard origin/main
 
